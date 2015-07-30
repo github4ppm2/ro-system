@@ -1,6 +1,6 @@
 <?php
 
-class Users_model extends CI_Model {
+class Department_model extends CI_Model {
 
     /**
     * Validate the login's data with the database
@@ -8,16 +8,10 @@ class Users_model extends CI_Model {
     * @param string $password
     * @return void
     */
-	function validate($user_name, $password)
-	{
-		$this->db->where('user_name', $user_name);
-		$this->db->where('pass_word', $password);
-		$query = $this->db->get('membership');
-		
-		if($query->num_rows == 1)
-		{
-			return true;
-		}		
+	
+	/****** get Department List*****/
+	function getDepartment(){
+	 /*****code write here****/
 	}
 
     /**
