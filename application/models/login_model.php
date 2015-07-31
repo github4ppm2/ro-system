@@ -58,10 +58,18 @@ class login_model extends CI_Model
 			 );
 			 
 		     $this->db->insert('tbl_user',$data);
-			 $this->db->where('id','$id');
+			 $this->db->where('id','user_id');
 			 return true;
 			  
 		 }
+		  public function get_uesr()
+		 {
+			$this->db->select("email,user_roles");
+             $this->db->from('tbl_user');
+             $query = $this->db->get();
+             return $query->result(); 
+		 }
+		 
 		 
 	  
      

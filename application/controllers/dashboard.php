@@ -56,7 +56,10 @@ class Dashboard extends MY_Controller {
 	}
 	public function edit()
 	{
- print_r($this->session->userdata('user_id'));
+		
+		      $this->load->model('login_model'); 
+             $data['query']=$this->login_model->get_uesr();
+         // print_r($this->session->userdata('user_id'));
 		$rules= array(
 				
 							array('field'=>'veid','label'=>'veid','rules'=>'required'),
@@ -65,12 +68,12 @@ class Dashboard extends MY_Controller {
 							array('field'=>'Department','label'=>'Department','rules'=>'required')
 				  );
 				  
-						$this->form_validation->set_rules($rules);
+						$this->form_validation->set_rules($rules );
 			 
 					   if($this->form_validation->run()== FALSE)
 				 
 			 {
-				 $this->load->view('dashboard/edit_view');
+				 $this->load->view('dashboard/edit_view',$data);
 			 }
 			 
 			 else{

@@ -2,8 +2,14 @@
  
  <form  name = "edit"action= "" method ="POST">
  <div class="col-lg-9 main-chart">
+ 
 		        <h2 class="form-login-heading">Edit Profile</h2>
 		        <div class="login-wrap">
+				
+				     <input class="form-control" id="email" name="email"  type="text"  value="<?php foreach($query as $row){ print $row->email; } ?>" readonly />
+					 </br>
+					 <input class="form-control" id="role" name="role"  type="text" value="<?php foreach($query as $row){ print $row->user_roles; } ?>"readonly/>
+					 </br>
 					<input class="form-control" id="veid" name="veid" placeholder=" VE-ID" type="text" value="<?php echo set_value('veid'); ?>" />
 					 <span class="text-danger"><?php echo form_error('veid'); ?></span>
 		            <br>
@@ -15,9 +21,9 @@
 					</br>
                    <select class="form-control" name = "Department">
                         
-                         <option>PHP</option>
-                         <option>JAVA</option>
-						 <option>.NET</option>
+                         <option value = "1">PHP</option>
+                         <option value = "2">JAVA</option>
+						 <option value = "3">.NET</option>
 						
                   </select>
 							  

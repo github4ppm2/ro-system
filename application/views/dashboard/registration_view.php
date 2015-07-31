@@ -12,11 +12,11 @@
 					</br>
 					
                    <select class="form-control" name = "role" >
-                         <option value = "1" id ="Assignee Role">Assignee Role</option>
-                         <option value = "2" id = "Admin">Admin</option>
-                         <option value = "3" id = "Team Member">Team Member</option>
-						 <option value = "4" id = "Team Leader">Team Leader</option>
-						 <option value = "5" id = "Manager">Manager</option>
+                        
+                         <option value ="1" selected="selected">Admin</option>
+                         <option value ="2" id = "Team Member">Team Member</option>
+						 <option value ="3" id = "Team Leader">Team Leader</option>
+						 <option value ="4" id = "Manager">Manager</option>
                   </select>
 							  
 				
