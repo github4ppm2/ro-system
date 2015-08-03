@@ -2,9 +2,8 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="<?php echo base_url(); ?>assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Marcel Newman</h5>
-              	  	
+              	  
+              	  
                   <li class="mt">
                       <a class="active" href="index">
                           <i class="fa fa-dashboard"></i>
@@ -29,12 +28,12 @@
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-cogs"></i>
-                          <span>Components</span>
+                          <span>PROJECT</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="calendar.html">Calendar</a></li>
-                          <li><a  href="gallery.html">Gallery</a></li>
-                          <li><a  href="todo_list.html">Todo List</a></li>
+                          <li><a  href="">Add Projects</a></li>
+                          <li><a  href="">Submitted Reports</a></li>
+                          <li><a  href="">Assigned Reports</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">

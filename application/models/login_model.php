@@ -56,16 +56,16 @@ class login_model extends CI_Model
 			 'Department'=>$this->input->post('Department'),
 			 
 			 );
-			 
-		     $this->db->insert('tbl_user',$data);
-			 $this->db->where('id','user_id');
+			 $uid=$this->session->userdata('user_id');			 
+		     $this->db->update('tbl_user',$data,array('id'=>$uid));
 			 return true;
 			  
 		 }
 		  public function get_uesr()
 		 {
-			$this->db->select("email,user_roles");
+			 $this->db->select("email,roles.user_roles");
              $this->db->from('tbl_user');
+			 $this->db->join('roles', 'roles.v_id = tbl_user.user_roles'); 
              $query = $this->db->get();
              return $query->result(); 
 		 }
