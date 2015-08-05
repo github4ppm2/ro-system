@@ -28,7 +28,7 @@ class Department_model extends CI_Model {
 		    $udata = unserialize($row->user_data);
 		    /* put data in array using username as key */
 		    $user['user_name'] = $udata['user_name']; 
-		    $user['is_logged_in'] = $udata['is_logged_in']; 
+		    $user['is_logged_in'] = $udata['is_logged_in'];
 		}
 		return $user;
 	}
