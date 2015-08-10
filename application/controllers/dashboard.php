@@ -56,16 +56,16 @@ class Dashboard extends MY_Controller {
 	}
 	public function edit()
 	{
-		
-		      $this->load->model('login_model'); 
+		     $data['department'] = $this->login_model->addmenu();
+		     $this->load->model('login_model'); 
              $data['query']=$this->login_model->get_uesr();
          // print_r($this->session->userdata('user_id'));
 		$rules= array(
-				
+				           
 							array('field'=>'veid','label'=>'veid','rules'=>'required'),
 							array('field'=>'name','label'=>'name','rules'=>'required'),
 							array('filed'=>'phone','label'=>'phone','rules'=>'required'),
-							array('field'=>'Department','label'=>'Department','rules'=>'required')
+							array('field'=>'department','label'=>'department','rules'=>'required')
 				  );
 				  
 						$this->form_validation->set_rules($rules );
@@ -73,22 +73,55 @@ class Dashboard extends MY_Controller {
 					   if($this->form_validation->run()== FALSE)
 				 
 			 {
+				
 				 $this->load->view('dashboard/edit_view',$data);
 			 }
 			 
-			 else{
+			 else
+			 {
 				 if($this->input->post('submit'))
 				 {
+					
 					 $resultset = $this->login_model->edit_user();
 					
-					 redirect('dashboard/edit');
+					redirect('dashboard/edit');
 				 }
 			 }
 
 	}
+	
+	
 	public function change_pass()
 	{
-		$this->load->view('dashboard/change_pass_view');
+	
+		
+		$rules = array (
+		                 array('field'=>'old_pass','label'=>'old_pass','rules'=>'required'),
+						 array('field'=>'new_pass','label'=>'new_pass','rules'=>'required'),
+						 array('field'=>'conf_pass','label'=>'conf_pass','rules'=>'required')	  		
+             		    );
+		$this->form_validation->set_rules($rules);						
+		if($this->form_validation->run()== FALSE)				 
+		 {
+			
+			 $this->load->view('dashboard/change_pass_view');
+		 }			 
+		 else
+		 {
+			 if($this->input->post('submit'))
+			 {
+				
+				 $resultset = $this->login_model->change_password();
+				
+				redirect('dashboard/change_pass_view');
+			 }
+		 }		
+		
+				
+		
+	  
+	    
+		
 	}
 }
 
