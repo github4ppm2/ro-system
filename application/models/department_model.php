@@ -12,6 +12,18 @@ class Department_model extends CI_Model {
 	/****** get Department List*****/
 	function getDepartment(){
 	 /*****code write here****/
+	 $this-> db->select ();
+	 $this-> db->from(TBL_DEPARTMENT);
+	 $this->db->where('status', '1');
+	 $query = $this->db->get();
+		 if($query-> num_rows == 1)
+		 {
+			 return $query->result();
+		 }
+		 else
+		 {
+			 return false;
+		 }
 	}
 
     /**
