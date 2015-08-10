@@ -5,7 +5,7 @@ class login extends MY_Controller
 {
 
      public function __construct()
-     {		 
+     {		  
           parent::__construct();         
           $this->load->helper('form');
           $this->load->helper('url');
@@ -13,19 +13,9 @@ class login extends MY_Controller
           //$this->load->library('form_validation');
           //load the login model
           $this->load->model('login_model');
+		  $this->load->helper('dropdown');
      }
-	 public function is_logged_in()
-	 {
-		/*  $is_logged_in = $this->session->Username('is_logged_in');
-        if(!isset($is_logged_in) || $is_logged_in != true)
-          {
-             echo 'You don\'t have permission to access this page.';
-             
-            $this->load->view('login_view');
-          } */
-		     
-          
-	 }
+	
 	 
 	 
        public function forgot()
