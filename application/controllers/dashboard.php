@@ -1,6 +1,5 @@
 <?php
-if (!defined('BASEPATH'))
-  exit('No direct script access allowed');
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 class Dashboard extends MY_Controller {
  
      public function __construct()
@@ -93,7 +92,16 @@ class Dashboard extends MY_Controller {
 	
 	public function change_pass()
 	{
+	          
+			
+	           
+			  $data = array(
+			 'old_pass'=>$this->input->post('old_pass'),
+			 'new_pass'=>$this->input->post('new_pass'),
+			 'conf_pass'=>$this->input->post('conf_pass'),
+			 );
 	
+	  
 		
 		$rules = array (
 		                 array('field'=>'old_pass','label'=>'old_pass','rules'=>'required'),
@@ -110,10 +118,22 @@ class Dashboard extends MY_Controller {
 		 {
 			 if($this->input->post('submit'))
 			 {
-				
 				 $resultset = $this->login_model->change_password();
+				 
+				 //echo $data['old_pass'];
+				// die;
+				//print_r($resultset);
+				//die();
+				if($resultset == $data['old_pass'] && $data['new_pass']== $data['conf_pass'])
+				{
 				
-				redirect('dashboard/change_pass_view');
+					  $resultset1= $this->login_model->update_pass();
+					  redirect ('dashboard/index');
+				}
+				 
+			  
+				
+
 			 }
 		 }		
 		
@@ -121,6 +141,31 @@ class Dashboard extends MY_Controller {
 		
 	  
 	    
+		
+	}
+	
+	public function user_listing()
+	{
+		
+		//$this->load->view('dashboard/user_listing');
+		$this->load->model('login_model');
+		$data['query'] = $this->login_model->user_list();
+		
+		$this->load->view('dashboard/user_listing',$data);
+		//echo "<pre>";
+		//print_r($data['query']);
+		//die();
+		
+		
+	}
+	
+	public function list_delete()
+	{
+		$this->load->model('login_model');
+        $data['query'] = $this->login_model->listing_delete();
+		echo "<pre>";
+		print_r($data['query']);
+		die();
 		
 	}
 }

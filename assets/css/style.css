@@ -2243,3 +2243,8 @@ label {
 #gritter-notice-wrapper {
 display:none;
 }
+	<style>
+ul#menu li {
+    display:inline;
+}
+</style>

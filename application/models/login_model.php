@@ -69,6 +69,8 @@ class login_model extends CI_Model
 			 $this->db->where('tbl_user.id',$uid);
 			 $this->db->join('roles', 'roles.v_id = tbl_user.user_roles'); 
              $query = $this->db->get();
+			// print_r($query);
+			// die();
 			
              return $query->result(); 
 		 }
@@ -78,6 +80,7 @@ class login_model extends CI_Model
 			$this->db->from('department');
 			$this->db->order_by('name');
 			$result = $this->db->get();
+		
 			$return = array();
 			
 			if($result->num_rows() > 0) {
@@ -93,37 +96,42 @@ class login_model extends CI_Model
 		 
 		 public function change_password()
 		 {
-			 
-			  $data = array(
-			 'old_pass'=>$this->input->post('old_pass'),
-			 'new_pass'=>$this->input->post('new_pass'),
-			 'conf_pass'=>$this->input->post('conf_pass'),
-			 );
+			
 			 
 			 $uid=$this->session->userdata('user_id'); 
-			
 			 $this->db->select("password");
 			 $this->db->from(tbl_user);
 			 $this->db->where('id',$uid);
 			 $query = $this->db->get();
-			
-			 //echo $data['old_pass']; die;
-			 if(old_pass==password)
-			 {
-				 if(new_pass == conf_pass)
-				 {
-					 $query = $this->db->update('tbl_user',$data,array('id'=>$uid));
-				 }
-				 else
-				 {
-					 echo "password should be same ";
-				 }
-				 
-			 }
-			
-             return $query->result();
+			 
+			 return $query->result();
+ 
 		 }
-	  
+		 public function update_pass()
+		 {
+			 $uid=$this->session->userdata('user_id'); 
+             $query = $this->db->update('tbl_user',array('id'=>$uid));			 
+			 return true;
+		 }
+		
+     public function user_list()
+	 {
+		 $this->db->select("id,veid,name,phone");
+		 $this->db->from(tbl_user);
+		 $query = $this->db->get();
+		
+		 return $query->result();
+		 
+	 }
+	 
+	 public function listing_delete()
+	 {
+		   $this->db->delete('tbl_user'); 
+		   $this->db->where('id', $id);
      
+	   $query = $this->db->get();
+		
+		 return $query->result();
+	 }
 }
 ?>

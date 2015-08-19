@@ -18,10 +18,12 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="<?php echo base_url('dashboard/registration')?>">Registration</a></li>
+						  <li><a  href="<?php echo base_url('dashboard/user_listing')?>">User Listing</a></li>
 						
-                        <!-- <li><a  href="<?php echo base_url('dashboard/edit') ?>">Edit Profile</a></li> -->
+                     
 						 <li><a href="<?php echo base_url();?>dashboard/edit/<?php echo $sessiondata;?>">Edit Profile</a></li>
                           <li><a  href="<?php echo base_url('dashboard/change_pass')?>">Change Password</a></li>
+						 
                       </ul>
                   </li>
 
@@ -31,7 +33,7 @@
                           <span>PROJECT</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="">Add Projects</a></li>
+                          <li><a  href="<?php echo base_url('project/add_project')?>">Add Projects</a></li>
                           <li><a  href="">Submitted Reports</a></li>
                           <li><a  href="">Assigned Reports</a></li>
                       </ul>

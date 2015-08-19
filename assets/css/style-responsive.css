@@ -288,8 +288,13 @@
         width: 75%;
     }
 
-}
 
+}
+	<style>
+ul#menu li {
+    display:inline;
+}
+</style>
 
 
 
